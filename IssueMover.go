@@ -25,7 +25,7 @@ type MoveRule struct {
 func CreateContext() JiraMoveContext {
 	return JiraMoveContext{
 		movedTotal: 0,
-		dryRun: true,
+		dryRun: false,
 	}
 }
 

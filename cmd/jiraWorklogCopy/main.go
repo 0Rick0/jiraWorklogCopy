@@ -41,7 +41,7 @@ func init() {
 func validateFlags() {
 	if len(startDateString) == 0 || len(endDateString) == 0{
 		print("Both start date and end date must be set!\n")
-		os.Exit(1);
+		os.Exit(1)
 	}
 	err := parseDates()
 	if err != nil {
