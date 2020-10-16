@@ -1,9 +1,9 @@
 #!/bin/bash
 
 OSES=(
-  'linux:amd64:'
-  'darwin:amd64:'
-  'windows:amd64:.exe'
+  'linux:amd64:jiraWorklogCopyLinux'
+  'darwin:amd64:jiraWorklogCopyDarwin'
+  'windows:amd64:jiraWorklogCopy.exe'
 )
 
 if [ ! -d target ]; then
@@ -11,7 +11,7 @@ if [ ! -d target ]; then
 fi
 
 for INFO in "${OSES[@]}" ; do
-  IFS=: read -r OS ARCH SUFFIX <<< "${INFO}"
+  IFS=: read -r OS ARCH FILENAME <<< "${INFO}"
   [ ! -d "target/${OS}" ] && mkdir "target/${OS}"
-  GOOS=$OS GOARCH=$ARCH go build -o "target/${OS}/jiraWorklogCopy${SUFFIX}" cmd/jiraWorklogCopy/main.go
+  GOOS=$OS GOARCH=$ARCH go build -o "target/${OS}/${FILENAME}" cmd/jiraWorklogCopy/main.go
 done
