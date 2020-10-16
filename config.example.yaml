@@ -1,0 +1,13 @@
+from:
+  baseurl: 'https://somehost.com/jira/'
+  username: 'username'
+  password: 'password'
+to:
+  baseurl: 'https://some.other.com/jira/'
+  username: 'username'
+  password: 'password'
+rules:
+  - from: 'TICKET-1'
+    to: 'OTHER-100'
+  - from: 'TICKET-4'
+    to: 'OTHER-500'
